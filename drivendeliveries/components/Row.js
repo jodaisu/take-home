@@ -1,6 +1,16 @@
 import Square from "./Square";
 
-const Row = ({ cellCount, row, evenOrOdd, player1, player2, color, shape }) => {
+const Row = ({
+  cellCount,
+  row,
+  evenOrOdd,
+  player1,
+  player2,
+  color,
+  shape,
+  pieceSelected,
+  setPieceSelected,
+}) => {
   let squares = [];
 
   // loop over cellCount to render horizontal squares/tiles
@@ -16,6 +26,8 @@ const Row = ({ cellCount, row, evenOrOdd, player1, player2, color, shape }) => {
           player2={player2}
           color={color}
           shape={shape}
+          pieceSelected={pieceSelected}
+          setPieceSelected={setPieceSelected}
         ></Square>
       );
     } else {
@@ -29,6 +41,8 @@ const Row = ({ cellCount, row, evenOrOdd, player1, player2, color, shape }) => {
           player2={player2}
           color={color}
           shape={shape}
+          pieceSelected={pieceSelected}
+          setPieceSelected={setPieceSelected}
         ></Square>
       );
     }

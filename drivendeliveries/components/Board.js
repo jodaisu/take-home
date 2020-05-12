@@ -1,6 +1,9 @@
 import Row from "./Row";
+import { useState } from "react";
 
 const Board = ({ cellCount, color, shape }) => {
+  const [pieceSelected, setPieceSelected] = useState(false);
+
   // loop over cellcount to render Rows
   let rows = [];
   for (let i = 0; i < cellCount; i++) {
@@ -14,6 +17,8 @@ const Board = ({ cellCount, color, shape }) => {
         player2={i >= cellCount - 2}
         color={color}
         shape={shape}
+        pieceSelected={pieceSelected}
+        setPieceSelected={setPieceSelected}
       ></Row>
     );
   }
