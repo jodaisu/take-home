@@ -1,6 +1,15 @@
-const Square = ({ row, column, offSet }) => {
+import Piece from "./Piece";
+
+const Square = ({ row, column, offSet, player1, player2 }) => {
   return offSet % 2 === 0 ? (
     <div className="tile1">
+      <Piece
+        key={`piece ${column}`}
+        row={row}
+        column={column}
+        player1={player1}
+        player2={player2}
+      ></Piece>
       <style jsx>{`
         .tile1 {
           display: inline-block;
@@ -14,6 +23,13 @@ const Square = ({ row, column, offSet }) => {
     </div>
   ) : (
     <div className="tile2">
+      <Piece
+        key={`piece ${column}`}
+        row={row}
+        column={column}
+        player1={player1}
+        player2={player2}
+      ></Piece>
       <style jsx>{`
         .tile2 {
           display: inline-block;

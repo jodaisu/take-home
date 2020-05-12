@@ -1,7 +1,9 @@
 import Square from "./Square";
 
-const Row = ({ cellCount, row, evenOrOdd }) => {
+const Row = ({ cellCount, row, evenOrOdd, player1, player2 }) => {
   let squares = [];
+
+  // loop over cellCount to render horizontal squares/tiles
   for (let i = 0; i < cellCount; i++) {
     if (evenOrOdd === "odd") {
       squares.push(
@@ -10,11 +12,20 @@ const Row = ({ cellCount, row, evenOrOdd }) => {
           column={i}
           key={`square-${i}`}
           offSet={i + 1}
+          player1={player1}
+          player2={player2}
         ></Square>
       );
     } else {
       squares.push(
-        <Square row={row} column={i} key={`square-${i}`} offSet={i}></Square>
+        <Square
+          row={row}
+          column={i}
+          key={`square-${i}`}
+          offSet={i}
+          player1={player1}
+          player2={player2}
+        ></Square>
       );
     }
   }
