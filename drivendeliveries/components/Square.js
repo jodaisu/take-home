@@ -10,7 +10,11 @@ const Square = ({
   shape,
   pieceSelected,
   setPieceSelected,
+  checkMoves,
+  inputMatrix,
 }) => {
+  // invoke to build matrix
+  inputMatrix(row, column);
   return offSet % 2 === 0 ? (
     <div className="tile1">
       <Piece
@@ -23,6 +27,8 @@ const Square = ({
         shape={shape}
         pieceSelected={pieceSelected}
         setPieceSelected={setPieceSelected}
+        checkMoves={checkMoves}
+        inputMatrix={inputMatrix}
       ></Piece>
       <style jsx>{`
         .tile1 {
@@ -47,6 +53,7 @@ const Square = ({
         shape={shape}
         pieceSelected={pieceSelected}
         setPieceSelected={setPieceSelected}
+        checkMoves={checkMoves}
       ></Piece>
       <style jsx>{`
         .tile2 {

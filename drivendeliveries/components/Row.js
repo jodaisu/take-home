@@ -10,6 +10,8 @@ const Row = ({
   shape,
   pieceSelected,
   setPieceSelected,
+  checkMoves,
+  inputMatrix,
 }) => {
   let squares = [];
 
@@ -28,6 +30,8 @@ const Row = ({
           shape={shape}
           pieceSelected={pieceSelected}
           setPieceSelected={setPieceSelected}
+          checkMoves={checkMoves}
+          inputMatrix={inputMatrix}
         ></Square>
       );
     } else {
@@ -43,6 +47,8 @@ const Row = ({
           shape={shape}
           pieceSelected={pieceSelected}
           setPieceSelected={setPieceSelected}
+          checkMoves={checkMoves}
+          inputMatrix={inputMatrix}
         ></Square>
       );
     }

@@ -9,13 +9,15 @@ const Piece = ({
   shape,
   pieceSelected,
   setPieceSelected,
+  checkMoves,
 }) => {
   const [highlightPiece, setHighlightPiece] = useState(false);
 
   // handleClick logic
   const handleClick = () => {
-    console.log("pieceSelected", pieceSelected);
     if (!pieceSelected) {
+      // onlick, take the coordinates and check for possible moves
+      const possibleMoves = checkMoves(row, column);
       setHighlightPiece(!highlightPiece);
       setPieceSelected(!pieceSelected);
     } else if (highlightPiece) {
@@ -23,6 +25,8 @@ const Piece = ({
       setPieceSelected(!pieceSelected);
     }
   };
+
+  // onlick, take the coordinate
 
   // colors predefined
   if (color == 1) {
