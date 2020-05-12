@@ -10,6 +10,8 @@ const Board = ({ cellCount }) => {
         row={i}
         cellCount={cellCount}
         evenOrOdd={i % 2 === 0 ? "even" : "odd"}
+        player1={i < 2}
+        player2={i >= cellCount - 2}
       ></Row>
     );
   }
