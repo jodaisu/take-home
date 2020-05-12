@@ -1,6 +1,6 @@
 import Row from "./Row";
 
-const Board = ({ cellCount }) => {
+const Board = ({ cellCount, color, shape }) => {
   // loop over cellcount to render Rows
   let rows = [];
   for (let i = 0; i < cellCount; i++) {
@@ -12,6 +12,8 @@ const Board = ({ cellCount }) => {
         evenOrOdd={i % 2 === 0 ? "even" : "odd"}
         player1={i < 2}
         player2={i >= cellCount - 2}
+        color={color}
+        shape={shape}
       ></Row>
     );
   }
