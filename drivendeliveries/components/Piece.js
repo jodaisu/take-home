@@ -1,4 +1,29 @@
-const Piece = ({ player1, player2, row, column, color, shape }) => {
+import { useState } from "react";
+
+const Piece = ({
+  player1,
+  player2,
+  row,
+  column,
+  color,
+  shape,
+  pieceSelected,
+  setPieceSelected,
+}) => {
+  const [highlightPiece, setHighlightPiece] = useState(false);
+
+  // handleClick logic
+  const handleClick = () => {
+    console.log("pieceSelected", pieceSelected);
+    if (!pieceSelected) {
+      setHighlightPiece(!highlightPiece);
+      setPieceSelected(!pieceSelected);
+    } else if (highlightPiece) {
+      setHighlightPiece(!highlightPiece);
+      setPieceSelected(!pieceSelected);
+    }
+  };
+
   // colors predefined
   if (color == 1) {
     color = {
@@ -18,12 +43,12 @@ const Piece = ({ player1, player2, row, column, color, shape }) => {
 
   if (player1) {
     return (
-      <div className="O">
+      <div className="O" onClick={handleClick}>
         <style jsx>{`
           .O {
             margin: auto;
             margin-top: 9px;
-            border: 1px solid white;
+            border: ${highlightPiece ? "3px solid yellow" : "1px solid white"};
             background-color: ${color.player1};
             border-radius: ${shape}%;
             height: 78px;
@@ -35,12 +60,12 @@ const Piece = ({ player1, player2, row, column, color, shape }) => {
   }
   if (player2) {
     return (
-      <div className="X">
+      <div className="X" onClick={handleClick}>
         <style jsx>{`
           .X {
             margin: auto;
             margin-top: 9px;
-            border: 1px solid black;
+            border: ${highlightPiece ? "3px solid yellow" : "1px solid black"};
             background-color: ${color.player2};
             border-radius: ${shape}%;
             height: 78px;
